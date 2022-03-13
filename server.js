@@ -35,11 +35,13 @@ io.on('connection', async (client) => {
   client.on('nicknameChange', (nickname) => {
     const userUpdate = User.updateUser(client.id, nickname);
     io.emit('updateUser', userUpdate);
+    console.log(`client id: ${client.id} change name to ${nickname}.`);
   });
 
   client.on('disconnect', async () => {
     await User.remove(client.id);
     io.emit('removeUser', client.id);
+    console.log(`client id: ${client.id} disconnected.`);
   });
 });
 
