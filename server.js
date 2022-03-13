@@ -2,7 +2,7 @@ const express = require('express');
 const moment = require('moment');
 require('dotenv').config()
 
-const { PORT } = process.env;
+const { PORT } = process.env || 3000;
 
 const app = express();
 const http = require('http').createServer(app);
