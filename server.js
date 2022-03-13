@@ -1,7 +1,8 @@
 const express = require('express');
 const moment = require('moment');
+require('dotenv').config()
 
-const PORT = 3000;
+const { PORT } = process.env;
 
 const app = express();
 const http = require('http').createServer(app);
